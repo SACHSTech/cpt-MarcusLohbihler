@@ -1,12 +1,21 @@
 package charts;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.PieChart.Data;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
-public class ObjectsLaunchedGraph extends Application {
+public class Main extends Application {
  
     private ObservableList<Data> data;
  
     public Parent createContent() {
         Data A, B, C, D;
-        data = FXCollections.observableArrayList(A = new Graphdata("Algeria","DZA", "Africa", 2002, 1),
+        data = FXCollections.observableArrayList(A = new Data("A", 30),
                                                  B = new Data("B", 30),
                                                  C = new Data("C", 10),
                                                  D = new Data("D", 40));
