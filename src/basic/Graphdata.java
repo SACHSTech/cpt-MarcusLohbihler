@@ -1,5 +1,6 @@
 package basic;
 
+
 public class Graphdata{
     private String country;
     private String continent;
@@ -7,7 +8,7 @@ public class Graphdata{
     private int year;
     private int objectCount;
 
-    public Graphdata(String countryName, String theCode, String continentName, int theYear, int theObjectCount){
+    public Graphdata(String countryName, String theCode, int theYear, int theObjectCount, String continentName){
         country = countryName;
         countryCode = theCode;
         continent = continentName;
