@@ -10,13 +10,15 @@ public class DataCollector {
     public DataCollector (ArrayList<Graphdata> theDataList)throws FileNotFoundException{
         dataList = new ArrayList<Graphdata>();
         String fileName = "c:/Users/marcu/cpt-MarcusLohbihler/Resources/cumulative-number-of-objects-launched-into-outer-space - cumulative-number-of-objects-launched-into-outer-space.csv";
-        try (FileReader input = new FileReader(fileName)){
-            
+        try (BufferedReader input = new BufferedReader(new FileReader(fileName))){
+            String line;
+            while ((line = input.readLine()) != null){
+                String[] parts = line.split(",");
+                new Graphdata(parts[0], parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), parts[4]);
+            }
         }
         catch(IOException e){
             e.printStackTrace();
         }
     }
-    
-
 }
