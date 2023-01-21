@@ -20,14 +20,11 @@ import javafx.stage.Stage;
  */
 public class DrilldownPieChartApp extends Application {
  
-    private ObservableList<Data> data;
+    private DataCollector data;
  
     public Parent createContent() {
-        Data A, B, C, D;
-        data = FXCollections.observableArrayList(A = new Data("A", 20),
-                                                 B = new Data("B", 30),
-                                                 C = new Data("C", 10),
-                                                 D = new Data("D", 40));
+        data = new DataCollector(objectsLaunched);
+        
         final PieChart pie = new PieChart(data);
         final String drillDownChartCss =
             getClass().getResource("DrilldownChart.css").toExternalForm();

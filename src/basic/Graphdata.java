@@ -36,4 +36,9 @@ public class Graphdata{
         return objectCount;
     }
 
+    @Override
+    public String toString() {
+        return "Graphdata [country=" + country + ", continent=" + continent + ", countryCode=" + countryCode + ", year="
+                + year + ", objectCount=" + objectCount + "]";
+    }
 }
