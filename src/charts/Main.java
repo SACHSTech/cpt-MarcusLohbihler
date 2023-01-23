@@ -1,13 +1,11 @@
 package charts;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import basic.DataCollector;
 import basic.Graphdata;
 import javafx.application.Application;
@@ -39,9 +37,6 @@ public class Main extends Application {
             }
             return false;
         }).collect(Collectors.toList());
-
-        // List<Graphdata> latestObjectLaunched = 
-
 
         continentAggregation = new HashMap<>();
         for(Graphdata g: latestObjectsLaunched){
