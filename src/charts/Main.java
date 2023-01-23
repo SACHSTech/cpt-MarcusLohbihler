@@ -57,8 +57,8 @@ public class Main extends Application {
             total += g.getObjects();
             countryAggregation.put(g.getCountry(), total);
         }
-        // System.out.println(countryAggregation);
-        // System.out.println(continentAggregation);
+         System.out.println(countryAggregation);
+         System.out.println(continentAggregation);
     }
  
     public Parent createContent() {
@@ -68,29 +68,26 @@ public class Main extends Application {
         final String drillDownChartCss =
             getClass().getResource("DrilldownChart.css").toExternalForm();
         pie.getStylesheets().add(drillDownChartCss);
+        // setDrilldownData(pie, null);
         return pie;
     }
  
-    private void setDrilldownData(final PieChart pie, final Data data,
-                                  final String labelPrefix) {
+    private void setDrilldownData(final PieChart pie, final Data data) {
         data.getNode().setOnMouseClicked((MouseEvent t) -> {
             Data[] countrydata = countryAggregation.entrySet().stream()
                .map(e -> {
                     return new Data(e.getKey(), e.getValue()); 
             }).toArray(Data[]::new);
-        ;
         });
-
     }
+    //.getName()
 
-    // private 
-
-    // private Data[] getContinentData(final String continent) {
-    //     objectsLaunched.stream()
-    //         .filter(e -> e.getContinent().equals(continent))
-    //         .map(e -> new Data(e.getCountry(), e.getObjects()))
-    //         .toArray(Data[]::new);
-    // }
+    private Data[] getContinentData(final String continent) {
+        return latestObjectsLaunched.stream()
+            .filter(e -> e.getContinent().equals(continent))
+            .map(e -> new Data(e.getCountry(), e.getObjects()))
+            .toArray(Data[]::new);
+    }
  
     @Override public void start(Stage primaryStage) throws Exception {
         primaryStage.setScene(new Scene(createContent()));
