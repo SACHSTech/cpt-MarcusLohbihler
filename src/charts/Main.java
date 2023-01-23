@@ -83,7 +83,9 @@ public class Main extends Application {
                .map(e -> {
                     return new Data(e.getKey(), e.getValue()); 
             }).toArray(Data[]::new);
+        ;
         });
+
     }
 
     // private 
