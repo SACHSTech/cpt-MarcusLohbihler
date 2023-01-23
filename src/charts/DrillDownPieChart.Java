@@ -1,5 +1,5 @@
 /* ....Show License.... */
-package charts;
+package ensemble.samples.charts.pie.drilldown;
  
  
 import javafx.application.Application;
@@ -20,11 +20,14 @@ import javafx.stage.Stage;
  */
 public class DrilldownPieChartApp extends Application {
  
-    private DataCollector data;
+    private ObservableList<Data> data;
  
     public Parent createContent() {
-        data = new DataCollector(objectsLaunched);
-        
+        Data A, B, C, D;
+        data = FXCollections.observableArrayList(A = new Data("A", 20),
+                                                 B = new Data("B", 30),
+                                                 C = new Data("C", 10),
+                                                 D = new Data("D", 40));
         final PieChart pie = new PieChart(data);
         final String drillDownChartCss =
             getClass().getResource("DrilldownChart.css").toExternalForm();

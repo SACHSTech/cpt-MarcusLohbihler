@@ -1,4 +1,5 @@
 package charts;
+import basic.DataCollector;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,15 +12,12 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
  
-    private ObservableList<Data> data;
+    private DataCollector data;
  
     public Parent createContent() {
-        Data A, B, C, D;
-        data = FXCollections.observableArrayList(A = new Data("A", 30),
-                                                 B = new Data("B", 30),
-                                                 C = new Data("C", 10),
-                                                 D = new Data("D", 40));
-        final PieChart pie = new PieChart(data);
+        data = new DataCollector(objectsLaunched);
+        
+        final PieChart pie = new PieChart((ObservableList<Data>) data);
         final String drillDownChartCss =
             getClass().getResource("DrilldownChart.css").toExternalForm();
         pie.getStylesheets().add(drillDownChartCss);
