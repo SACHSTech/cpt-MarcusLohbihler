@@ -24,24 +24,21 @@ public class BarChartApp extends Application {
     private NumberAxis yAxis;
  
     public Parent createContent() {
-        String[] years = {"2007", "2008", "2009"};
+        String[] years = {"1960", "2000"};
         xAxis = new CategoryAxis();
         xAxis.setCategories(FXCollections.<String>observableArrayList(years));
         yAxis = new NumberAxis("Units Sold", 0.0d, 3000.0d, 1000.0d);
         ObservableList<BarChart.Series> barChartData =
             FXCollections.observableArrayList(
-              new BarChart.Series("Apples", FXCollections.observableArrayList(
-                new BarChart.Data(years[0], 567d),
-                new BarChart.Data(years[1], 1292d),
-                new BarChart.Data(years[2], 1292d))),
-              new BarChart.Series("Lemons", FXCollections.observableArrayList(
+              new BarChart.Series("Russia", FXCollections.observableArrayList(
+                new BarChart.Data(years[0], 567),
+                new BarChart.Data(years[1], 1292))),
+              new BarChart.Series("United States", FXCollections.observableArrayList(
                 new BarChart.Data(years[0], 956),
-                new BarChart.Data(years[1], 1665),
-                new BarChart.Data(years[2], 2559))),
-              new BarChart.Series("Oranges", FXCollections.observableArrayList(
+                new BarChart.Data(years[1], 1665))),
+              new BarChart.Series("China", FXCollections.observableArrayList(
                 new BarChart.Data(years[0], 1154),
-                new BarChart.Data(years[1], 1927),
-                new BarChart.Data(years[2], 2774)))
+                new BarChart.Data(years[1], 1927)))
             );
         chart = new BarChart(xAxis, yAxis, barChartData, 25.0d);
         return chart;
