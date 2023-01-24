@@ -1,5 +1,5 @@
 /* ....Show License.... */
 .chart-pie:hover {
     -fx-border-color: black;
-    -fx-border-width: 0px;
+    -fx-border-width: 1px;
 }

@@ -9,8 +9,8 @@ public class DataCollector {
     private ArrayList<Graphdata> dataList; 
     public DataCollector ()throws FileNotFoundException{
         dataList = new ArrayList<Graphdata>();
-        // String fileName = "C:/Users/marcu/cpt-MarcusLohbihler/Resources/cumulative-number-of-objects-launched-into-outer-space - cumulative-number-of-objects-launched-into-outer-space.csv";
-        String fileName = "Z:/Marcus/cpt-MarcusLohbihler/Resources/cumulative-number-of-objects-launched-into-outer-space - cumulative-number-of-objects-launched-into-outer-space.csv";
+        String fileName = "C:/Users/marcu/cpt-MarcusLohbihler/Resources/cumulative-number-of-objects-launched-into-outer-space - cumulative-number-of-objects-launched-into-outer-space.csv";
+        // String fileName = "Z:/Marcus/cpt-MarcusLohbihler/Resources/cumulative-number-of-objects-launched-into-outer-space - cumulative-number-of-objects-launched-into-outer-space.csv";
         try (BufferedReader input = new BufferedReader(new FileReader(fileName))){
             input.readLine();
             String line;
