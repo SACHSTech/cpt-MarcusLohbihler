@@ -63,24 +63,24 @@ public class Main extends Application {
  
     public Parent createContent() {
         Data[] continentData = continentAggregation.entrySet().stream().map(e -> new Data(e.getKey(), e.getValue())).toArray(Data[]::new);
+        Data[] countryData = countryAggregation.entrySet().stream().map(e -> new Data(e.getKey(), e.getValue())).toArray(Data[]::new);
         data = FXCollections.observableArrayList(continentData);
         final PieChart pie = new PieChart(data);
         final String drillDownChartCss =
             getClass().getResource("DrilldownChart.css").toExternalForm();
         pie.getStylesheets().add(drillDownChartCss);
-        // setDrilldownData(pie, null);
+        for(Data d: continentData){
+            setDrilldownData(pie, d);
+        }       
         return pie;
     }
  
     private void setDrilldownData(final PieChart pie, final Data data) {
         data.getNode().setOnMouseClicked((MouseEvent t) -> {
-            Data[] countrydata = countryAggregation.entrySet().stream()
-               .map(e -> {
-                    return new Data(e.getKey(), e.getValue()); 
-            }).toArray(Data[]::new);
+            System.out.println("Mouse Clicked");
+            pie.setData(FXCollections.observableArrayList(getContinentData(data.getName())));
         });
     }
-    //.getName()
 
     private Data[] getContinentData(final String continent) {
         return latestObjectsLaunched.stream()
