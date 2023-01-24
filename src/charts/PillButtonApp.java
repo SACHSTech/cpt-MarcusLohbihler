@@ -22,7 +22,7 @@ public class PillButtonApp extends Application {
         ToggleButton tb1 = new ToggleButton("DrillDown Pie Chart");
         tb1.setPrefSize(76, 45);
         tb1.getStyleClass().add("left-pill");
-        ToggleButton tb2 = new ToggleButton("Both Charts");
+        ToggleButton tb2 = new ToggleButton("No Chart");
         tb2.setPrefSize(76, 45);
         tb2.getStyleClass().add("center-pill");
         ToggleButton tb3 = new ToggleButton("Bar Chart");
@@ -34,7 +34,7 @@ public class PillButtonApp extends Application {
         tb2.setToggleGroup(group);
         tb3.setToggleGroup(group);
         // select the first button to start with
-        group.selectToggle(tb1);
+        group.selectToggle(tb2);
  
         // enforce rule that one of the ToggleButtons must be selected at any
         // time (that is, it is not valid to have zero ToggleButtons selected).
