@@ -1,5 +1,10 @@
 /* ....Show License.... */
 package charts;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import basic.Graphdata;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,23 +26,20 @@ public class BarChartApp extends Application {
     private BarChart chart;
     private CategoryAxis xAxis;
     private NumberAxis yAxis;
- 
+        
     public Parent createContent() {
-        String[] years = {"1960", "2000"};
+        String[] totalObjectsLaunched = {"Total as of 2021"};
         xAxis = new CategoryAxis();
-        xAxis.setCategories(FXCollections.<String>observableArrayList(years));
-        yAxis = new NumberAxis("Units Sold", 0.0d, 3000.0d, 1000.0d);
+        xAxis.setCategories(FXCollections.<String>observableArrayList(totalObjectsLaunched));
+        yAxis = new NumberAxis("Total Number of Objects Launched into Space", 0.0d, 3000.0d, 1000.0d);
         ObservableList<BarChart.Series> barChartData =
             FXCollections.observableArrayList(
               new BarChart.Series("Russia", FXCollections.observableArrayList(
-                new BarChart.Data(years[0], 567),
-                new BarChart.Data(years[1], 1292))),
+                new BarChart.Data(totalObjectsLaunched[0], 567))),
               new BarChart.Series("United States", FXCollections.observableArrayList(
-                new BarChart.Data(years[0], 956),
-                new BarChart.Data(years[1], 1665))),
+                new BarChart.Data(totalObjectsLaunched[0], 956))),
               new BarChart.Series("China", FXCollections.observableArrayList(
-                new BarChart.Data(years[0], 1154),
-                new BarChart.Data(years[1], 1927)))
+                new BarChart.Data(totalObjectsLaunched[0], 1154)))
             );
         chart = new BarChart(xAxis, yAxis, barChartData, 25.0d);
         return chart;

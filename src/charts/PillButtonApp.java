@@ -35,6 +35,13 @@ public class PillButtonApp extends Application {
         tb3.setToggleGroup(group);
         // select the first button to start with
         group.selectToggle(tb2);
+
+        // Check value of buttons
+        int intChartSelected = 0;
+
+        if(tb1.isSelected()){
+            
+        }
  
         // enforce rule that one of the ToggleButtons must be selected at any
         // time (that is, it is not valid to have zero ToggleButtons selected).
