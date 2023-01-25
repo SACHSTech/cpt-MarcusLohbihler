@@ -24,19 +24,14 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.ToolBar;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -79,7 +74,7 @@ public class Main extends Application {
         }
          System.out.println(countryAggregation);
          System.out.println(continentAggregation);
-    }
+     }
  
     public Parent createContent() {
         //data for drilldown and bar charts
@@ -100,14 +95,19 @@ public class Main extends Application {
         BarChart chart;
         CategoryAxis xAxis;
         NumberAxis yAxis;
-        String[] totalObjectsLaunched = {""};
+        String[] totalObjectsLaunched = {"Total as of 2021"};
         xAxis = new CategoryAxis();
         xAxis.setCategories(FXCollections.<String>observableArrayList(totalObjectsLaunched));
-        yAxis = new NumberAxis("Units Sold", 0.0d, 3000.0d, 1000.0d);
-        ObservableList<Data> barChartData =
-            FXCollections.observableArrayList(
-            );
-        chart = new BarChart(xAxis, yAxis, barChartData, 25.0d);       
+        yAxis = new NumberAxis("Total Number of Objects Launched into Space", 0.0d, 3000.0d, 1000.0d);
+        ObservableList<Graphdata> barChartData =
+            FXCollections.observableArrayList();
+                for(Graphdata g: latestObjectsLaunched){
+                new BarChart.Series(g.getCountry(), FXCollections.observableArrayList(
+            new BarChart.Data(totalObjectsLaunched[0], g.getObjects())));
+            }
+                
+                       
+        chart = new BarChart(xAxis, yAxis, barChartData, 25.0d);   
 
         //Stack Panes
         StackPane stackPaneDrilldown = new StackPane();
@@ -153,7 +153,13 @@ public class Main extends Application {
         //Bottom content
         Label bottomLabel = new Label("At the bottom.");
         borderPane.setBottom(bottomLabel);
-        return borderPane;
+        
+        final TabPane tabPane = new TabPane();
+        Tab tab1 = new Tab();
+        Tab tab2 = new Tab();
+        Tab tab3 = new Tab();
+        return tabPane;
+
     }
  
     private void setDrilldownData(final PieChart pie, final Data data) {
