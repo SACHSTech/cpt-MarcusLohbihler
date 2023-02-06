@@ -1,5 +1,8 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=9655226&assignment_repo_type=AssignmentRepo)
 # ICS4U CPT (Edit this)
 
-* Place your project README details here
+* In my ICS4U1 CPT, I am using two different charts to project data using JavaFX. The data I have used is about space exploration and satelites. The data is specifically about the cumulative amount of objects that every country has launched into space from 1957 to 2021. I chose to use this data because I find the topic of space exploration to be very intersting and it was a topic which I had never researched until now.  The main interface is a border pane which features two different charts. The charts being used are a drilldown pie chart and a bar chart. A drilldown pie chart is a pie chart where if you click on a point of data in the chart, it will open a separate pie chart containing information within the section clicked on. For example, you can click on the continent Europe, and then it will show you the data relating to Europe such as data on countries like France or Germany. There is a button that you can press to return to the original pie chart where you can click on another continent. There are also two buttons on the sides of the border pane which you can use to switch between viewing the drilldown chart and the bar chart. The bar chart shows the total amount of launches made by only countries with 50 or more total launches. 
+* Link to data: https://ourworldindata.org/space-exploration-satellites
+  Video Link:  https://drive.google.com/file/d/17i1I_EOVfgwqHekF7RdLbzluHeUq762x/view?usp=share_link
+* 
 * Check the [VS Code, Java, and JavaFX Install and Set Up](https://docs.google.com/document/d/1s5oTmY8A8TDZu303p_DaH6CEAcC9xL8-aNX-pAxCcps/edit?usp=sharing) doc for set up and getting started instructions.
